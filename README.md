@@ -1,6 +1,6 @@
 # learn_sql
 
-A new Flutter project.
+A new Flutter project for learning SQL.
 
 ## Getting Started
 
