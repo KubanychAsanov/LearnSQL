@@ -56,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            ...generateContentBody(article['content']),
+            ...generateContentBody(articles[0]),
           ],
         ),
       ),
