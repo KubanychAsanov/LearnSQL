@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:learn_sql/dummy_data.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'widgets/image_content.dart';
-import 'widgets/markdown_content.dart';
-import 'widgets/youtube_content.dart';
+import 'blocs/page_bloc.dart';
+import 'widgets/drawer_widget.dart';
+import 'widgets/page_item.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,10 +14,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Learn SQL',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'SQLди оңой үйрөнүңүз'),
+      home: BlocProvider(
+        create: (context) => PageBloc(),
+        child: MyHomePage(title: 'SQLди оңой үйрөнүңүз'),
+      ),
     );
   }
 }
@@ -32,20 +36,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List generateContentBody(contents) {
-    return contents.map((content) {
-      switch (content['type']) {
-        case 'MARKDOWN':
-          return MarkdownContent(markdown: content['data']);
-        case 'YOUTUBE':
-          return YouTubeContent(youTubeUrl: content['data']);
-        case 'IMAGE':
-          return ImageContent(imageUrl: content['data']);
-        default:
-          print('Unknown content type');
-      }
-    }).toList();
-  }
+  late int pageIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -53,13 +44,8 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            ...generateContentBody(articles[0]),
-          ],
-        ),
-      ),
+      drawer: DrawerWidget(),
+      body: PageItem(),
     );
   }
 }
