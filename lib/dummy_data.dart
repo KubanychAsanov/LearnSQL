@@ -154,9 +154,6 @@ SQLдин ачкыч сөздөрү чоң, кичине жазылышы - эк
 
 """,
       },
-
-
-
       {
         'type': 'YOUTUBE',
         'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
@@ -169,16 +166,52 @@ SQLдин ачкыч сөздөрү чоң, кичине жазылышы - эк
       {
         'type': 'MARKDOWN',
         'data': """
-# **Башкы бет**
+# **SQLдеги SELECT командасы**
 
-SQL - бул маалымат базаларына жетүү жана аларды башкаруу үчүн стандарттуу тил.
+SELECT командасы маалымат базасынан маалыматтарды тандоо үчүн колдонулат.
 
-Биздин SQL үйрөткүүчү платформабыз SQLди: MySQL, SQL Server, MS Access, Oracle, Sybase, Informix, Postgres жана башка маалымат база тутумдарында кантип колдонууну үйрөтөт.
+Кайтарылган маалыматтар жыйынтыктар топтому (result-set) деп аталган натыйжалар таблицасында (result table) сакталат.
 
-### **Ар бир бөлүмдө мисалдар**
+### **SELECT командасынын синтаксиси**
 
-Ар бир бөлүмдө теманы жакшы түшүнүү үчүн мисалдар берилет. Ал эми жоопторун код түрүндө ошол эле жерден көрө аласыз!
+```
+SELECT column1, column2, ...
+FROM table_name;
+```
+Бул жерде column1, column2 сиз тандап алгыңыз келген маалыматтардын таблицадагы колонка аттары. Эгерде сиз жадыбалдагы бардык талааларды тандап алгыңыз келсе, анда төмөнкү синтаксисти колдонуңуз:
+
+```
+SELECT * FROM table_name;
+```
+
+### **SELECT column командасын колдонуу**
+
+Төмөнкү SQL командасы "Customers" таблицасынан "CustomerName" жана "City" колонкаларын (тилкелерин) тандайт:
 """,
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+```
+SELECT CustomerName, City FROM Customers;
+```
+
+### **SELECT * командасын колдонуу**
+
+Төмөнкү SQL командасы "Customers" таблицасынан бардык колонкаларды тандайт:
+
+```
+SELECT * FROM Customers;
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1JQpvHz02W9LjwQ3kXiatYRAY6AEo5eOJ/view?usp=sharing'
       },
       {
         'type': 'YOUTUBE',
