@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.learn_sql">
    <application
-        android:label="learn_sql"
+        android:label="KG SQL"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
