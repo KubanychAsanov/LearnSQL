@@ -151,7 +151,6 @@ SQLдин ачкыч сөздөрү чоң, кичине жазылышы - эк
 - DROP TABLE - таблицаны өчүрөт
 - CREATE INDEX - индексти түзөт (издөө ачкычы)
 - DROP INDEX - индексти өчүрөт
-
 """,
       },
       {
@@ -187,6 +186,9 @@ SELECT * FROM table_name;
 ### **SELECT column командасын колдонуу**
 
 Төмөнкү SQL командасы "Customers" таблицасынан "CustomerName" жана "City" колонкаларын (тилкелерин) тандайт:
+```
+SELECT CustomerName, City FROM Customers;
+```
 """,
       },
       {
@@ -196,9 +198,6 @@ SELECT * FROM table_name;
       {
         'type': 'MARKDOWN',
         'data': """
-```
-SELECT CustomerName, City FROM Customers;
-```
 
 ### **SELECT * командасын колдонуу**
 
@@ -212,6 +211,376 @@ SELECT * FROM Customers;
       {
         'type': 'IMAGE',
         'data': 'https://drive.google.com/file/d/1JQpvHz02W9LjwQ3kXiatYRAY6AEo5eOJ/view?usp=sharing'
+      },
+      {
+        'type': 'YOUTUBE',
+        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+      },
+    ]
+  },
+  {
+    'title': 'SQLдеги SELECT DISTINCT командасы',
+    'content': [
+      {
+        'type': 'MARKDOWN',
+        'data': """
+# **SQLдеги SELECT DISTINCT командасы**
+
+SELECT DISTINCT командасы так (ар кандай) баалуулуктарды гана кайтаруу үчүн колдонулат.
+
+Таблицанын ичинде колонка көпчүлүк учурда кайталануучу маанилерди камтыйт; кээде сиз ар кандай (айырмаланган) маанилерди тизмелеп алгыңыз келет. Ошондо бул команданы колдонобуз.
+
+### **SELECT DISTINCT командасынын синтаксиси**
+
+```
+SELECT DISTINCT column1, column2, ...
+FROM table_name;
+```
+Ал эми төмөндө биз SELECT менен SELECT DISTINCT командаларынын айырмаларын мисалдар менен жакшы түшүнө алабыз.
+
+### **SELECT командасынын DISTINCT командасыз колдонулушу**
+
+Төмөнкү SQL командасы "Customers" таблицасындагы "Country" колонкасынын маанилерин (анын ичинде көчүрмөлөрүн кошо алганда) тандайт:
+
+```
+SELECT Country FROM Customers;
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+Эми, келгиле, SELECT DISTINCT командасын колдонуп, натыйжаны көрөлү.
+
+### **SELECT DISTINCT командасынын мисалы**
+
+Төмөнкү SQL командасы "Customers" таблицасындагы "Country" колонкасынын өзгөчө маанилерин гана тандайт:
+
+```
+SELECT DISTINCT Country FROM Customers;
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+Төмөнкү SQL командасы ар кандай (айырмаланган) кардарларынын санын тизмелейт:
+
+```
+SELECT COUNT(DISTINCT Country) FROM Customers;
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'YOUTUBE',
+        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+      },
+    ]
+  },
+  {
+    'title': 'SQLдеги WHERE командасы',
+    'content': [
+      {
+        'type': 'MARKDOWN',
+        'data': """
+# **SQLдеги WHERE командасы**
+
+WHERE командасы маалыматтарды филтрлөө, сорттоого пайдалуу.
+
+Маалыматтарды белгилүү бир жерден гана алуу үчүн колдонулат.
+
+### **WHERE командасынын синтаксиси**
+
+```
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+```
+
+Эскертүү: WHERE командасы SELECT командасы менен эле эмес, UPDATE, DELETE ж.б. командалар менен чогуу колдонсо болот!
+
+### **WHERE командасын колдонуу**
+
+Төмөнкү SQL командасы "Customers" таблицасындагы "Mexico" өлкөсүндөгү бардык кардарларды тандап алат:
+
+```
+SELECT * FROM Customers
+WHERE Country='Mexico';
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+
+### **Текст талаалары жана сандык талаалар**
+
+SQL тексттик маанилердин айланасында бирдиктүү цитаталарды талап кылат (көпчүлүк маалыматтар базасы кош тырмакча уруксат берет).
+
+Бирок, сандык талаалар тырмакча менен жабылбашы керек:
+
+```
+SELECT * FROM Customers
+WHERE CustomerID=1;
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+
+### **WHERE командасынын ичиндеги операторлор**
+
+Төмөнкү операторлорду WHERE командасы менен колдонобуз:
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1JQpvHz02W9LjwQ3kXiatYRAY6AEo5eOJ/view?usp=sharing'
+      },
+      {
+        'type': 'YOUTUBE',
+        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+      },
+    ]
+  },
+  {
+    'title': 'SQLдеги AND, OR жана NOT операторлору',
+    'content': [
+      {
+        'type': 'MARKDOWN',
+        'data': """
+# **SQLдеги AND, OR жана NOT операторлору**
+
+WHERE командасы AND, OR жана NOT операторлору менен биргеликте колдонсок болот.
+
+AND жана OR операторлору бирден көп шарттагы маалыматтарды филтрлөө, сорттоо үчүн колдонулат:
+
+- AND оператору аркылуу, эгерде бардык шарттарда ТУУРА болсо маалыматты көрсөтөт.
+- OR оператору аркылуу, эгерде шарттардын жок дегенде бири ТУУРА болсо маалыматты көрсөтөт.
+Ал эми NOT оператору, бардык шартта ТУУРА ЭМЕС болгон учурда маалыматты көрсөтөт.
+
+### **AND операторунун синтаксиси**
+
+```
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition1 AND condition2 AND condition3 ...;
+```
+
+### **OR операторунун синтаксиси**
+
+```
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition1 OR condition2 OR condition3 ...;
+```
+
+### **NOT операторунун синтаксиси**
+
+```
+SELECT column1, column2, ...
+FROM table_name
+WHERE NOT condition;
+```
+
+### **AND оператору менен мисал**
+
+Төмөнкү SQL командасы "Customers" таблицасындагы "Germany" өлкөсү МЕНЕН "Berlin" шаарындагы бардык талааларды чыгарат:
+
+```
+SELECT * FROM Customers
+WHERE Country='Germany' AND City='Berlin';
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+### **OR оператору менен мисал**
+
+Төмөнкү SQL командасы "Customers" таблицасындагы "Berlin" ЖЕ "München" шаарындагы бардык талааларды чыгарат:
+
+```
+SELECT * FROM Customers
+WHERE City='Berlin' OR City='München';
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+### **NOT оператору менен мисал**
+
+Төмөнкү SQL командасы "Customers" таблицасындагы "Germany" өлкөсүнөн БАШКА бардык талааларды чыгарат:
+
+```
+SELECT * FROM Customers
+WHERE NOT Country='Germany';
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+### **AND, OR жана NOT операторлорун чогуу колдонуу**
+
+Төмөнкү SQL командасы "Customers" таблицасындагы "Germany" ЖАНА "USA" өлкөлөрүнөн БАШКА бардык талааларды чыгарат:
+
+```
+SELECT * FROM Customers
+WHERE NOT Country='Germany' AND NOT Country='USA';
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'YOUTUBE',
+        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+      },
+    ]
+  },
+  {
+    'title': 'SQLдеги ORDER BY ачкыч сөзү',
+    'content': [
+      {
+        'type': 'MARKDOWN',
+        'data': """
+# **SQLдеги ORDER BY ачкыч сөзү**
+
+ORDER BY ачкыч сөзү натыйжанын көтөрүлүп же түшүү тартибин иреттөө үчүн колдонулат.
+
+ORDER BY ачкыч сөзү демейки шартта, эсепке алуу тартибин жогорулоочу тартибинде сорттойт. Ал эми кыймылдануу тартибин төмөндөтүүчү буйрутмага иреттөө үчүн, DESC ачкыч сөзүн колдонуңуз.
+
+### **ORDER BY ачкыч сөзүнүн синтаксиси**
+
+```
+SELECT column1, column2, ...
+FROM table_name
+ORDER BY column1, column2, ... ASC|DESC;
+```
+
+### **ORDER BY ачкыч сөзүн колдонуу**
+
+Төмөнкү SQL командасы "Customers" таблицасындагы "Country" колонкасындагы бардык кардарларды алфавит ирээтинде тандап алат:
+
+```
+SELECT * FROM Customers
+ORDER BY Country;
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+
+### **ORDER BY ачкыч сөзү менен бир нече колонканы чыгаруу мисалы**
+
+Төмөнкү SQL командасы "Customers" таблицасындагы "Country" менен "CustomerName" колонкаларынын ирээтелиши менен бардык талаалардын чакырылышы берилген. Бул мисал Country колонкасы аркылуу ирээтелишин көрсөтөт, бирок кээ бир саптар Country колонкасында бирдей болуп калса, анда CustomerName колонкасы аркылуу ирээттелет:
+
+```
+SELECT * FROM Customers
+ORDER BY Country, CustomerName;
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'YOUTUBE',
+        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+      },
+    ]
+  },
+  {
+    'title': 'SQLдеги INSERT INTO командасы',
+    'content': [
+      {
+        'type': 'MARKDOWN',
+        'data': """
+# **SQLдеги INSERT INTO командасы**
+
+INSERT INTO командасы таблицага жаңы маалыматтарды кошуу үчүн колдонулат.
+
+### **INSERT INTO командасынын синтаксиси**
+
+INSERT INTO командасын 2 жол менен жаза алабыз.
+1. Колонкалардын аталыштарын жана киргизилчү маанилерди да көрсөтүңүз:
+
+```
+INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);
+```
+
+2. Эгерде таблицанын бардык колонкалары үчүн маалыматтарды кошуп жатсаңыз, анда SQL командасында колонканын аталыштарын көрсөтүүнүн кажети жок. Синтаксиске киргизүү төмөнкүдөй:
+
+```
+INSERT INTO table_name
+VALUES (value1, value2, value3, ...);
+```
+
+### **INSERT INTO командасы менен мисал**
+
+Төмөндөгү SQL командасы "Customers" таблицасына жаңы маалыматтарды кошот:
+
+```
+INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
+VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+Биз CustomerID талаасына эч кандай сан киргизбегенибизди байкадыңызбы?
+CustomerID колонкасы автоматтык түрдө көбөйүү талаасы болуп саналат жана таблицага жаңы жазуу киргизилгенде автоматтык түрдө түзүлөт.
+```
+""",
       },
       {
         'type': 'YOUTUBE',
