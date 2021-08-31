@@ -17,6 +17,10 @@ class MarkdownContent extends StatelessWidget {
         onTapLink: (text, url, title) {
           if (url != null) launch(url);
         },
+        styleSheet: MarkdownStyleSheet(
+          p: TextStyle(fontSize: 16),
+          listBullet: TextStyle(fontSize: 16),
+        ),
       ),
     );
   }

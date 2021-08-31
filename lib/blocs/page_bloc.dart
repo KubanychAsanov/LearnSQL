@@ -20,6 +20,10 @@ class PageState {
   PageState copyWith({
     int? index,
   }) {
+    if (index != null && index < 0) {
+      index = 0;
+    }
+
     return PageState(
       index: index ?? this.index,
     );

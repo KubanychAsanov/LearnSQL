@@ -10,7 +10,7 @@ class ImageContent extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
 
-    return Image.asset(
+    return Image.network(
       imageUrl,
       fit: BoxFit.cover,
     );

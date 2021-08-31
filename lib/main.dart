@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'blocs/page_bloc.dart';
 import 'widgets/drawer_widget.dart';
@@ -17,10 +18,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        textTheme: GoogleFonts.openSansTextTheme(
+          Theme.of(context).textTheme,
+        ),
       ),
       home: BlocProvider(
         create: (context) => PageBloc(),
-        child: MyHomePage(title: 'SQLди оңой үйрөнүңүз'),
+        child: MyHomePage(title: 'SQLди оңой үйрөн'),
       ),
     );
   }
