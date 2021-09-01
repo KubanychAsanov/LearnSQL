@@ -1032,4 +1032,183 @@ WHERE CustomerName LIKE 'a__%';
       },
     ]
   },
+  {
+    'title': 'SQLдеги IN оператору',
+    'content': [
+      {
+        'type': 'MARKDOWN',
+        'data': """
+# **SQLдеги IN оператору**
+
+IN оператору WHERE пунктунда бир нече баалуулуктарды көрсөтүүгө мүмкүндүк берет.
+
+IN оператору OR операторунун шарттарын кыска жол менен аткаруу болуп саналат.
+
+### **IN операторунун синтаксиси**
+
+```
+SELECT column_name(s)
+FROM table_name
+WHERE column_name IN (value1, value2, ...);
+```
+
+### **IN операторуна мисал**
+
+Төмөнкү SQL командасы "Германияда", "Францияда" же "Улуу Британияда" жайгашкан бардык кардарларды тандайт:
+
+```
+SELECT * FROM Customers
+WHERE Country IN ('Germany', 'France', 'UK');
+```
+
+Ал эми төмөнкү SQL командасы "Германияда", "Францияда" же "Улуу Британияда" БОЛБОГОН бардык кардарларды тандайт:
+
+```
+SELECT * FROM Customers
+WHERE Country NOT IN ('Germany', 'France', 'UK');
+```
+""",
+      },
+      {
+        'type': 'YOUTUBE',
+        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+      },
+    ]
+  },
+  {
+    'title': 'SQLдеги BETWEEN оператору',
+    'content': [
+      {
+        'type': 'MARKDOWN',
+        'data': """
+# **SQLдеги BETWEEN оператору**
+
+BETWEEN оператору берилген аралыктагы баалуулуктарды тандайт. Маанилер сандар, текст же даталар болушу мүмкүн.
+
+BETWEEN операторунда баштоо жана аяктоо мааниси камтылган.
+
+### **BETWEEN операторунун синтаксиси**
+
+```
+SELECT column_name(s)
+FROM table_name
+WHERE column_name BETWEEN value1 AND value2;
+```
+
+### **BETWEEN операторуна мисал**
+
+Төмөнкү SQL командасы 10дон 20га чейинки баадагы бардык продукцияны тандап алат:
+
+```
+SELECT * FROM Products
+WHERE Price BETWEEN 10 AND 20;
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+### **NOT BETWEEN операторуна мисал**
+
+Продукцияларды белгиленген чегинен тышкары көрсөтүү үчүн NOT BETWEEN колдонуңуз:
+```
+SELECT * FROM Products
+WHERE Price NOT BETWEEN 10 AND 20;
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+### **Эки убакыт аралыгындагы маалыматтарды алуу**
+
+Төмөнкү SQL командасы '01 -July-1996' жана '31 -July-1996' ортосундагы бардык заказдарды тандайт:
+```
+SELECT * FROM Orders
+WHERE OrderDate BETWEEN '1996-07-01' AND '1996-07-31';
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'YOUTUBE',
+        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+      },
+    ]
+  },
+  {
+    'title': 'SQLдеги JOIN командасы',
+    'content': [
+      {
+        'type': 'MARKDOWN',
+        'data': """
+# **SQLдеги JOIN командасы**
+
+JOIN командасы эки же андан көп таблицалардын катарларын, алардын ортосундагы байланышкан колонканын негизинде бириктирүү үчүн колдонулат.
+
+Келгиле, "Orders" таблицасынан тандоону карап көрөлү:
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+Андан кийин, "Customers" таблицасынан тандоону карап көрүңүз:
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+"Orders" таблицасындагы "CustomerID" колонкасы менен "Customers" таблицасындагы "CustomerID" окшош экенин байкаңыз. Жогорудагы эки таблицанын ортосундагы байланыш "CustomerID" колонкасы.
+
+Андан кийин, биз эки таблицада дал келген колонкаларды тандай турган төмөнкү SQL командасын (INNER JOIN) түзө алабыз:
+
+```
+SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
+```
+жана төмөндөгү жыйынтыкка келебиз:
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+### **SQLдеги JOIN командасынын түрлөрү**
+
+Бул жерде SQLдеги JOINдин ар кандай түрлөрү бар(кашаанын ичиндеги команданы колдонбой койсок да болот):
+- (INNER) JOIN: Эки таблицада тең дал келген мааниге ээ болгон маалыматтарды чыгарат
+- LEFT (OUTER) JOIN: Сол таблицадагы бардык маалыматтарды жана оң таблицага дал келген маалыматтарды чыгарат
+- RIGHT (OUTER) JOIN: Оң таблицадагы бардык маалыматтарды жана сол таблицага дал келген маалыматтарды чыгарат
+- FULL (OUTER) JOIN: Сол менен оң таблица дал келген да, дал келбеген бардык маалыматтарды кайтарат
+""",
+      },
+      {
+        'type': 'YOUTUBE',
+        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+      },
+    ]
+  },
 ];
