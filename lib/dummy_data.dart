@@ -1211,4 +1211,523 @@ INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
       },
     ]
   },
+  {
+    'title': 'SQLдеги INNER JOIN ачкыч сөзү',
+    'content': [
+      {
+        'type': 'MARKDOWN',
+        'data': """
+# **SQLдеги INNER JOIN ачкыч сөзү**
+
+INNER JOIN ачкыч сөзү эки таблицадагы тең дал келүүчү маалыматтарды тандайт.
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+### **INNER JOIN ачкыч сөзүнүн синтаксиси**
+
+```
+SELECT column_name(s)
+FROM table1
+INNER JOIN table2
+ON table1.column_name = table2.column_name;
+```
+
+### **INNER JOIN ачкыч сөзүнө мисал**
+
+Төмөнкү SQL командасы кардар маалыматы менен бардык буйруктарды тандайт:
+
+```
+SELECT Orders.OrderID, Customers.CustomerName
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+```
+Эскертүү: INNER JOIN ачкыч сөзү колонкалардын ортосунда дал келүү болгондо эки таблицанын бардык саптарын тандайт. Эгерде "Заказдар" менен "Кардарлар" таблицасында  дал келген маалыматтар жок болсо, бул буйрутмалар көрсөтүлбөйт!
+
+### **Үч таблицаны кошуу**
+
+Төмөнкү SQL командасы кардар жана жөнөтүүчү маалыматы бар бардык буйруктарды тандайт:
+
+```
+SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName
+FROM ((Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)
+INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);
+```
+""",
+      },
+      {
+        'type': 'YOUTUBE',
+        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+      },
+    ]
+  },
+  {
+    'title': 'SQLдеги LEFT JOIN ачкыч сөзү',
+    'content': [
+      {
+        'type': 'MARKDOWN',
+        'data': """
+# **SQLдеги LEFT JOIN ачкыч сөзү**
+
+LEFT JOIN ачкыч сөзү сол жактагы таблицадан (таблица 1) бардык маалыматтарды жана оң таблица (таблица 2) менен дал келген маалыматтарды кайтарат. Эки таблицанын окшоштугу жок болсо, оң таблицадан эч маалымат чыгарбайт.
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+### **LEFT JOIN ачкыч сөзүнүн синтаксиси**
+
+```
+SELECT column_name(s)
+FROM table1
+LEFT JOIN table2
+ON table1.column_name = table2.column_name;
+```
+
+### **LEFT JOIN сыр сөзүнө мисал**
+
+Төмөнкү SQL командасы бардык кардарларды жана алар болушу мүмкүн болгон буйруктарды тандайт:
+
+```
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+ORDER BY Customers.CustomerName;
+```
+
+Эскертүү: LEFT JOIN ачкыч сөзү оң таблицада эч кандай дал келүү жок болсо да, сол таблицадагы бардык маалыматтарды кайтарып берет.
+""",
+      },
+      {
+        'type': 'YOUTUBE',
+        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+      },
+    ]
+  },
+  {
+    'title': 'SQLдеги RIGHT JOIN ачкыч сөзү',
+    'content': [
+      {
+        'type': 'MARKDOWN',
+        'data': """
+# **SQLдеги RIGHT JOIN ачкыч сөзү**
+
+RIGHT JOIN ачкыч сөзү оң жактагы таблицадан (таблица 2) бардык маалыматтарды жана сол таблица (таблица 1) менен дал келген маалыматтарды кайтарат. Эки таблицанын окшоштугу жок болсо, сол таблицадан эч маалымат чыгарбайт.
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+### **RIGHT JOIN ачкыч сөзүнүн синтаксиси**
+
+```
+SELECT column_name(s)
+FROM table1
+RIGHT JOIN table2
+ON table1.column_name = table2.column_name;
+```
+
+### **RIGHT JOIN сыр сөзүнө мисал**
+
+Төмөнкү SQL командасы бардык кызматкерлерди жана алар койгон заказдарды кайтарат:
+
+```
+SELECT Orders.OrderID, Employees.LastName, Employees.FirstName
+FROM Orders
+RIGHT JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+ORDER BY Orders.OrderID;
+```
+
+Эскертүү: RIGHT JOIN ачкыч сөзү сол таблицада эч кандай дал келүү жок болсо да, оң таблицадагы бардык маалыматтарды кайтарып берет.
+""",
+      },
+      {
+        'type': 'YOUTUBE',
+        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+      },
+    ]
+  },
+  {
+    'title': 'SQLдеги FULL JOIN ачкыч сөзү',
+    'content': [
+      {
+        'type': 'MARKDOWN',
+        'data': """
+# **SQLдеги FULL JOIN ачкыч сөзү**
+
+FULL JOIN ачкыч сөзү эки таблицанын окшоштугу, таблицалардын өзгөчөлүктөрү менен кошуп бардык маалыматтарды кайтарат.
+
+Кеңеш: FULL OUTER JOIN жана FULL JOIN бирдей.
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+### **FULL JOIN ачкыч сөзүнүн синтаксиси**
+
+```
+SELECT column_name(s)
+FROM table1
+FULL OUTER JOIN table2
+ON table1.column_name = table2.column_name
+WHERE condition;
+```
+
+### **FULL JOIN сыр сөзүнө мисал**
+
+Төмөнкү SQL командасы бардык кардарларды жана бардык буйруктарды тандайт:
+
+```
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+FULL OUTER JOIN Orders ON Customers.CustomerID=Orders.CustomerID
+ORDER BY Customers.CustomerName;
+```
+
+Эскертүү: FULL JOIN ачкыч сөзү башка таблицага дал келген же келбегенине карабастан, бардык маалыматтарды кайтарат. Ал эми бардык таблицалардагы өзүлөрүнө гана тиешелүү маалыматтардагы саптар тизмеленет.
+""",
+      },
+      {
+        'type': 'YOUTUBE',
+        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+      },
+    ]
+  },
+  {
+    'title': 'SQLдеги Self JOIN',
+    'content': [
+      {
+        'type': 'MARKDOWN',
+        'data': """
+# **SQLдеги Self JOIN**
+
+Self JOIN кадимки кошулуу бирок таблица өзү кошулат.
+
+### **Self JOIN ачкыч сөзүнүн синтаксиси**
+
+```
+SELECT column_name(s)
+FROM table1 T1, table1 T2
+WHERE condition;
+```
+T1 жана T2 бир эле таблицанын ар кандай таблицалары.
+
+### **LEFT JOIN сыр сөзүнө мисал**
+
+Төмөнкү SQL командасы ошол эле шаардан келген кардарларды кайтарат:
+
+```
+SELECT A.CustomerName AS CustomerName1, B.CustomerName AS CustomerName2, A.City
+FROM Customers A, Customers B
+WHERE A.CustomerID <> B.CustomerID
+AND A.City = B.City
+ORDER BY A.City;
+```
+""",
+      },
+      {
+        'type': 'YOUTUBE',
+        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+      },
+    ]
+  },
+  {
+    'title': 'SQLдеги UNION оператору',
+    'content': [
+      {
+        'type': 'MARKDOWN',
+        'data': """
+# **SQLдеги UNION оператору**
+
+UNION оператору эки же андан көп SELECT командаларынын жыйындысын бириктирүү үчүн колдонулат:
+- UNION ичиндеги ар бир SELECT командасындө бирдей колонка болушу керек
+- Колонкаларда дагы окшош маалымат түрлөрү болушу керек
+- Ар бир SELECT командасындагы колонкалар дагы ошол эле тартипте болушу керек
+
+### **UNION операторунун синтаксиси**
+
+```
+SELECT column_name(s) FROM table1
+UNION
+SELECT column_name(s) FROM table2;
+```
+### **UNION ALL операторунун синтаксиси**
+
+UNION оператору демейки боюнча айырмаланган баалуулуктарды гана тандайт. Кайталанма баалуулуктарга уруксат берүү үчүн UNION ALL колдонуңуз:
+
+```
+SELECT column_name(s) FROM table1
+UNION ALL
+SELECT column_name(s) FROM table2;
+```
+Эскертүү: Натыйжалар топтомундагы колонкалардын аттары, адатта, биринчи SELECT командасындагы колонкалардын аталыштарына барабар.
+
+### **UNION операторуна мисал**
+
+Төмөнкү SQL командасы "Customers" жана "Suppliers" таблицасынан шаарларды (айырмаланган баалуулуктарды) кайтарат:
+```
+SELECT City FROM Customers
+UNION
+SELECT City FROM Suppliers
+ORDER BY City;
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+Эскертүү: Эгерде кээ бир кардарлар же жеткирүүчүлөр бир эле шаарга ээ болсо, анда ар бир шаар бир гана жолу тизмеленет, анткени UNION айырмаланган баалуулуктарды гана тандайт. UNION ALL колдонуп, кайталануучу баалуулуктарды тандаңыз!
+
+### **UNION ALL операторуна мисал**
+
+Төмөнкү SQL билдирүүсү "Customers" жана "Suppliers" таблицасынан шаарларды (кайталанган баалуулуктарды) кайтарат:
+```
+SELECT City FROM Customers
+UNION ALL
+SELECT City FROM Suppliers
+ORDER BY City;
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+### **UNION ALL операторун WHERE оператору менен колдонуу**
+
+Төмөнкү SQL командасы "Customers" жана "Suppliers" таблицасынан немис шаарларын (бир гана айырмаланган баалуулуктарды) кайтарат:
+```
+SELECT City, Country FROM Customers
+WHERE Country='Germany'
+UNION
+SELECT City, Country FROM Suppliers
+WHERE Country='Germany'
+ORDER BY City;
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+### **UNION ALL операторун WHERE оператору менен колдонуу**
+
+Төмөнкү SQL командасы "Customers" жана "Suppliers" таблицасынаннан немис шаарларын (кайталанган баалуулуктарды) кайтарат:
+
+```
+SELECT City, Country FROM Customers
+WHERE Country='Germany'
+UNION ALL
+SELECT City, Country FROM Suppliers
+WHERE Country='Germany'
+ORDER BY City;
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'YOUTUBE',
+        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+      },
+    ]
+  },
+  {
+    'title': 'SQLдеги GROUP BY командасы',
+    'content': [
+      {
+        'type': 'MARKDOWN',
+        'data': """
+# **SQLдеги GROUP BY командасы**
+
+GROUP BY командасы "Ар бир өлкөдөгү кардарлардын санын табуу" сыяктуу бирдей мааниге ээ болгон саптарды кыскача саптарга топтоштурат.
+
+GROUP BY командасы көбүнчө жыйынды функцияларын (COUNT(), MAX(), MIN(), SUM(), AVG()) жыйынтыгын бир же бир нече колонкаларга топтоо үчүн колдонулат.
+
+### **GROUP BY командасынын синтаксиси**
+```
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+ORDER BY column_name(s);
+```
+
+### **GROUP BY командасына мисал**
+
+Төмөнкү SQL командасында ар бир өлкөдөгү кардарлардын саны жазылган:
+
+```
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country;
+```
+
+Төмөнкү SQL командасында ар бир өлкөдөгү кардарлардын саны тизмеленип, жогорудан төмөнгө чейин иреттелген:
+
+```
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+ORDER BY COUNT(CustomerID) DESC;
+```
+
+### **GROUP BY командасынын JOIN командасы менен чогуу колдонулушу**
+
+Төмөнкү SQL командасында ар бир жөнөтүүчү жөнөткөн буйруктардын саны жазылган:
+
+```
+SELECT Shippers.ShipperName, COUNT(Orders.OrderID) AS NumberOfOrders FROM Orders
+LEFT JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID
+GROUP BY ShipperName;
+```
+""",
+      },
+      {
+        'type': 'YOUTUBE',
+        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+      },
+    ]
+  },
+  {
+    'title': 'SQLдеги HAVING оператору',
+    'content': [
+      {
+        'type': 'MARKDOWN',
+        'data': """
+# **SQLдеги HAVING оператору**
+
+HAVING командасынын SQLге кошулганынын себеби WHERE ачкыч сөзүн агрегат функциялары менен колдонууга болбойт.
+
+### **HAVING операторунун синтаксиси**
+
+```
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+HAVING condition
+ORDER BY column_name(s);
+```
+
+### **HAVING операторуна мисал**
+
+Төмөнкү SQL командасында ар бир өлкөдөгү кардарлардын саны жазылган. 5тен ашык кардары бар өлкөлөрдү гана камтыйт:
+
+```
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+HAVING COUNT(CustomerID) > 5;
+```
+
+Ал эми төмөнкү SQL командасында 10дон ашык заказ катталган кызматкерлердин тизмеси келтирилген:
+
+```
+SELECT Employees.LastName, COUNT(Orders.OrderID) AS NumberOfOrders
+FROM (Orders
+INNER JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID)
+GROUP BY LastName
+HAVING COUNT(Orders.OrderID) > 10;
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'YOUTUBE',
+        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+      },
+    ]
+  },
+  {
+    'title': 'SQLдеги EXISTS оператору',
+    'content': [
+      {
+        'type': 'MARKDOWN',
+        'data': """
+# **SQLдеги EXISTS оператору**
+
+EXISTS оператору кандайдыр бир маалыматтын бар экендигин текшерүү үчүн колдонулат.
+
+Эгерде команда бир же бир нече маалыматты кайтарса, EXISTS оператору ЧЫНДЫКты (TRUE) кайтарат.
+
+### **EXISTS операторунун синтаксиси**
+
+```
+SELECT column_name(s)
+FROM table_name
+WHERE EXISTS
+(SELECT column_name FROM table_name WHERE condition);
+```
+
+### **EXISTS операторуна мисал**
+
+Төмөнкү SQL командасы ЧЫНДЫКТЫ (TRUE) кайтарат жана продукциянын баасы 20дан төмөн болгон жеткирүүчүлөрдү тизмектейт:
+
+```
+SELECT SupplierName
+FROM Suppliers
+WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price < 20);
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+Төмөнкү SQL командасы ЧЫНДЫКТЫ (TRUE) кайтарат жана продукциянын баасы 22ге барабар жеткирүүчүлөрдү тизмектейт:
+
+```
+SELECT SupplierName
+FROM Suppliers
+WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price = 22);
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'YOUTUBE',
+        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+      },
+    ]
+  },
 ];
