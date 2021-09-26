@@ -23,26 +23,23 @@ class _DrawerWidgetState extends State<DrawerWidget> {
     return BlocBuilder<PageBloc, PageState>(
       builder: (context, state) {
         return Drawer(
-          child: Column(
+          child: ListView(
             children: [
-              Container(
-                width: MediaQuery.of(context).size.width,
-                child: DrawerHeader(
-                  margin: EdgeInsets.all(0),
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
+              DrawerHeader(
+                child: Center(
+                  child: Text(
+                    'SQLди оңой үйрөн',
+                    style: TextStyle(fontSize: 21, color: Colors.white),
                   ),
-                  child: Center(
-                    child: Text(
-                      'SQLди оңой үйрөн',
-                      style: TextStyle(fontSize: 21, color: Colors.white),
-                    ),
-                  ),
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.blue,
                 ),
               ),
               ListView.builder(
-                padding: EdgeInsets.all(0),
+                physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
+                padding: EdgeInsets.only(bottom: 10),
                 itemCount: articles.length,
                 itemBuilder: (BuildContext context, int index) {
                   return InkWell(

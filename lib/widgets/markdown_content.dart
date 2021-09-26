@@ -18,7 +18,7 @@ class MarkdownContent extends StatelessWidget {
           if (url != null) launch(url);
         },
         styleSheet: MarkdownStyleSheet(
-          p: TextStyle(fontSize: 16),
+          p: TextStyle(fontSize: 18),
           listBullet: TextStyle(fontSize: 16),
         ),
       ),
