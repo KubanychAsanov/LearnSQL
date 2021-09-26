@@ -1,6 +1,6 @@
 # learn_sql
 
-A new Flutter project for learning SQL.
+This is a app created by Flutter for learning SQL in kyrgyz language.
 
 ## Getting Started
 
