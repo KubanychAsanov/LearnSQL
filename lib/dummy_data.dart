@@ -1730,4 +1730,655 @@ WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppl
       },
     ]
   },
+  {
+    'title': 'SQLдеги ANY жана ALL операторлору',
+    'content': [
+      {
+        'type': 'MARKDOWN',
+        'data': """
+# **SQLдеги ANY жана ALL операторлору**
+
+ANY жана ALL операторлору бир колонканын мааниси менен башка баалуулуктардын диапазонун салыштырууга мүмкүндүк берет.
+
+### **ANY оператору**
+
+ANY оператор:
+- натыйжасында логикалык маанини кайтарат
+- КАЙСЫ (ANY) кошумча суроо баалуулуктары шартка жооп берсе, ЧЫНДЫКты (TRUE) кайтарат
+
+ANY оператору операция диапазондогу маанилердин кайсынысы үчүн болбосун чыныгы болорун билдирет.
+
+### **ANY операторунун синтаксиси**
+
+```
+SELECT column_name(s)
+FROM table_name
+WHERE column_name operator ANY
+  (SELECT column_name
+  FROM table_name
+  WHERE condition);
+```
+
+Эскертүү: Оператор стандарттык салыштыруу оператору болушу керек (=, <>,! =,>,> =, <Же <=).
+
+### **ALL оператору**
+
+ALL оператор:
+- натыйжасында логикалык маанини кайтарат
+- эгерде БАРДЫК (ALL) команда мааниси шартка жооп берсе, TRUE кайтарат
+- SELECT, WHERE жана HAVING командалары менен колдонулат
+
+ALL оператору операция диапазондогу бардык баалуулуктар үчүн гана туура болгондо гана чыныгы болот дегенди билдирет.
+
+### **ALL операторунун SELECT командасы менен колдонулуш синтаксиси**
+
+```
+SELECT ALL column_name(s)
+FROM table_name
+WHERE condition;
+```
+
+### **ALL операторунун WHERE же HAVING командасы менен колдонулуш синтаксиси**
+
+```
+SELECT column_name(s)
+FROM table_name
+WHERE column_name operator ALL
+  (SELECT column_name
+  FROM table_name
+  WHERE condition);
+```
+
+Эскертүү: Оператор стандарттык салыштыруу оператору болушу керек (=, <>,! =,>,> =, <Же <=).
+
+### **ANY операторуна мисал**
+
+Төмөнкү SQL командасы ProductNameди тизмектейт, эгерде OrderDetails таблицасында КАНДАЙ БИР (ANY) маалыматтар Саны 10го барабар болсо (бул ЧЫНДЫКТЫ кайтарат, анткени Саны колонкасында 10дун кээ бир мааниси бар):
+
+```
+SELECT ProductName
+FROM Products
+WHERE ProductID = ANY
+  (SELECT ProductID
+  FROM OrderDetails
+  WHERE Quantity = 10);
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+Төмөнкү SQL командасы ProductNameди тизмектейт, эгерде OrderDetails таблицасында КАНДАЙ БИР (ANY) маалыматтар Саны 99дан чоң болсо (бул ЧЫНДЫКТЫ кайтарат, анткени Саны колонкасында 99дан чоңураак маанилер бар):
+
+```
+SELECT ProductName
+FROM Products
+WHERE ProductID = ANY
+  (SELECT ProductID
+  FROM OrderDetails
+  WHERE Quantity > 99);
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+### **ALL операторуна мисал**
+
+Төмөнкү SQL командасында БАРДЫК продукт аттары кайтарылган:
+
+```
+SELECT ALL ProductName
+FROM Products
+WHERE TRUE;
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'YOUTUBE',
+        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+      },
+    ]
+  },
+  {
+    'title': 'SQLдеги SELECT INTO командасы',
+    'content': [
+      {
+        'type': 'MARKDOWN',
+        'data': """
+# **SQLдеги SELECT INTO командасы**
+
+SELECT INTO командасы бир таблицадагы маалыматтарды жаңы таблицага көчүрөт.
+
+### **SELECT INTO командасынын синтаксиси**
+
+Бардык колонкаларды жаңы таблицага көчүрүү:
+
+```
+SELECT *
+INTO newtable [IN externaldb]
+FROM oldtable
+WHERE condition;
+```
+
+Жаңы таблицага айрым колонкаларды гана көчүрүү:
+
+```
+SELECT column1, column2, column3, ...
+INTO newtable [IN externaldb]
+FROM oldtable
+WHERE condition;
+```
+
+Жаңы таблица эски таблицада аныкталган колонкалардын аталыштары жана түрлөрү менен түзүлөт. Сиз AS операторун колдонуу менен жаңы колонкалардын аттарын түзө аласыз.
+
+### **SELECT INTO операторуна мисал**
+
+Төмөнкү SQL командасы Кардарлардын камдык (резерв) көчүрмөсүн түзөт:
+
+```
+SELECT * INTO CustomersBackup2017
+FROM Customers;
+```
+
+Төмөнкү SQL командасында таблицаны башка маалымат базасындагы жаңы таблицага көчүрүү үчүн IN пункту колдонулат:
+
+```
+SELECT * INTO CustomersBackup2017 IN 'Backup.mdb'
+FROM Customers;
+```
+
+Төмөнкү SQL командасы бир нече таблицадан маалыматтарды жаңы таблицага көчүрөт:
+
+```
+SELECT Customers.CustomerName, Orders.OrderID
+INTO CustomersOrderBackup2017
+FROM Customers
+LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
+```
+
+Кеңеш: SELECT INTO башка схеманы колдонуу менен жаңы бош таблица түзүү үчүн да колдонулушу мүмкүн. Жөн гана WHERE операторун кошуңуз, бул команда эч кандай маалымат бербейт:
+
+```
+SELECT * INTO newtable
+FROM oldtable
+WHERE 1 = 0;
+```
+""",
+      },
+      {
+        'type': 'YOUTUBE',
+        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+      },
+    ]
+  },
+  {
+    'title': 'SQLдеги INSERT INTO SELECT командасы',
+    'content': [
+      {
+        'type': 'MARKDOWN',
+        'data': """
+# **SQLдеги INSERT INTO SELECT командасы**
+
+INSERT INTO SELECT командасы маалыматтарды бир таблицадан көчүрүп, башка таблицага киргизет.
+
+INSERT INTO SELECT командасы булак жана максаттуу таблицалардагы маалымат түрлөрүнүн дал келишин талап кылат.
+
+Эскертүү: Максаттуу таблицада болгон маалыматтар эч кандай таасирин тийгизбейт.
+
+### **INSERT INTO SELECT командасынын синтаксиси**
+
+Бардык таблицаларда бир таблицадан экинчи таблицага көчүрүү:
+
+```
+INSERT INTO table2
+SELECT * FROM table1
+WHERE condition;
+```
+
+Бир таблицадан кээ бир колонкаларды башка таблицага көчүрүү:
+
+```
+INSERT INTO table2 (column1, column2, column3, ...)
+SELECT column1, column2, column3, ...
+FROM table1
+WHERE condition;
+```
+
+### **INSERT INTO SELECT командасына мисал**
+
+Төмөнкү SQL командасы "Жеткирүүчүлөр" таблицасын "Кардарлар" таблицасына көчүрөт (маалыматтар менен толтурулбаган мамычаларда NULL болот):
+
+```
+INSERT INTO Customers (CustomerName, City, Country)
+SELECT SupplierName, City, Country FROM Suppliers;
+```
+
+Төмөнкү SQL командасы "Жеткирүүчүлөрдү" "Кардарларга" көчүрөт (бардык колонкаларды толтуруңуз):
+
+```
+INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
+SELECT SupplierName, ContactName, Address, City, PostalCode, Country FROM Suppliers;
+```
+
+""",
+      },
+      {
+        'type': 'YOUTUBE',
+        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+      },
+    ]
+  },
+  {
+    'title': 'SQLдеги CASE командасы',
+    'content': [
+      {
+        'type': 'MARKDOWN',
+        'data': """
+# **SQLдеги CASE командасы**
+
+CASE командасы шарттардан өтөт жана биринчи шарт аткарылганда маанини кайтарат (if-анан-else командасы сыяктуу). Ошентип, бир шарт туура болгондон кийин, ал окуусун токтотуп, жыйынтыгын кайтарат. Эгерде эч кандай шарттар туура болбосо, анда ал ELSE пунктундагы маанини кайтарат.
+
+Эгерде башка бөлүк жок болсо жана шарттар туура болбосо, ал NULL кайтарат.
+
+### **CASE командасынын синтаксиси**
+
+```
+CASE
+    WHEN condition1 THEN result1
+    WHEN condition2 THEN result2
+    WHEN conditionN THEN resultN
+    ELSE result
+END;
+```
+
+### **CASE командасына мисал**
+
+Төмөнкү SQL командасы шарттардан өтөт жана биринчи шарт аткарылганда маанини кайтарат:
+
+```
+SELECT OrderID, Quantity,
+CASE
+    WHEN Quantity > 30 THEN 'The quantity is greater than 30'
+    WHEN Quantity = 30 THEN 'The quantity is 30'
+    ELSE 'The quantity is under 30'
+END AS QuantityText
+FROM OrderDetails;
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+Төмөнкү SQL командасы кардарларга Шаар боюнча буйрук берет. Бирок, эгер шаар NULL болсо, анда өлкө боюнча буйрук берет:
+
+```
+SELECT CustomerName, City, Country
+FROM Customers
+ORDER BY
+(CASE
+    WHEN City IS NULL THEN Country
+    ELSE City
+END);
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'YOUTUBE',
+        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+      },
+    ]
+  },
+  {
+    'title': 'SQLдеги Комментарийлер',
+    'content': [
+      {
+        'type': 'MARKDOWN',
+        'data': """
+# **SQLдеги Комментарийлер**
+
+Комментарийлер SQL командаларынын бөлүмдөрүн түшүндүрүү үчүн же SQL командаларынын аткарылышын болтурбоо үчүн колдонулат.
+
+Эскертүү: Бул бөлүмдөгү мисалдар Firefox жана Microsoft Edgeде иштебейт!
+
+Комментарийлер Microsoft Access маалымат базаларында колдоого алынбайт. Биздин мисалдарда Firefox жана Microsoft Edge Microsoft Access маалымат базасын колдонушат.
+
+### **Бир саптуу комментарий**
+
+Бир саптуу комментарийлер -- (эки сызыкча) менен башталат.
+
+-- (эки сызыкча) жана саптын аягына чейинки текст жокко чыгарылат (аткарылбайт).
+
+Төмөнкү мисал түшүндүрмө катары бир саптуу комментарийди колдонот:
+
+```
+--Select all:
+SELECT * FROM Customers;
+```
+
+Төмөнкү мисал саптын аягына көңүл бурбоо үчүн бир саптуу комментарийди колдонот:
+
+```
+SELECT * FROM Customers -- WHERE City='Berlin';
+```
+
+Төмөнкү мисал билдирүүнү этибарга албоо үчүн бир саптуу комментарийди колдонот:
+
+```
+--SELECT * FROM Customers;
+SELECT * FROM Products;
+```
+
+### **Көп саптуу комментарийлер**
+
+Көп саптуу комментарийлер / * менен башталып, * /менен бүтөт.
+
+/ * жана * / ортосундагы ар кандай текст этибарга алынбайт.
+
+Төмөнкү мисал түшүндүрмө катары көп саптуу комментарийди колдонот:
+
+```
+/*Select all the columns
+of all the records
+in the Customers table:*/
+SELECT * FROM Customers;
+```
+
+Төмөнкү мисал көптөгөн командаларды этибарга албоо үчүн көп саптуу комментарийди колдонот:
+
+```
+/*SELECT * FROM Customers;
+SELECT * FROM Products;
+SELECT * FROM Orders;
+SELECT * FROM Categories;*/
+SELECT * FROM Suppliers;
+```
+
+Команданын бир бөлүгүн этибарга албоо үчүн, / * * / комментарийди да колдонуңуз.
+
+Төмөнкү мисал саптын бир бөлүгүн этибарга албоо үчүн комментарийди колдонот:
+
+```
+SELECT CustomerName, /*City,*/ Country FROM Customers;
+```
+
+Төмөнкү мисал команданын бир бөлүгүн этибарга албоо үчүн комментарийди колдонот:
+
+```
+SELECT * FROM Customers WHERE (CustomerName LIKE 'L%'
+OR CustomerName LIKE 'R%' /*OR CustomerName LIKE 'S%'
+OR CustomerName LIKE 'T%'*/ OR CustomerName LIKE 'W%')
+AND Country='USA'
+ORDER BY CustomerName;
+```
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'YOUTUBE',
+        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+      },
+    ]
+  },
+  {
+    'title': 'SQLдеги Операторлор',
+    'content': [
+      {
+        'type': 'MARKDOWN',
+        'data': """
+# **SQLдеги Операторлор**
+
+### **SQLдеги Арифметикалык Операторлор**
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+### **Bitwise Операторлор**
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+### **Салыштыруу Операторлор**       
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+### **Татаал Операторлор**
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'MARKDOWN',
+        'data': """
+### **Логикалык Операторлор**
+""",
+      },
+      {
+        'type': 'IMAGE',
+        'data': 'https://drive.google.com/file/d/1u6uB44HLAwfqKPWL2VughdPt2ImdL2jp/view?usp=sharing'
+      },
+      {
+        'type': 'YOUTUBE',
+        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+      },
+    ]
+  },
+  {
+    'title': 'SQLдеги CREATE DATABASE командасы',
+    'content': [
+      {
+        'type': 'MARKDOWN',
+        'data': """
+# **SQLдеги CREATE DATABASE командасы**
+
+CREATE DATABASE командасы жаңы SQL маалымат базасын түзүү үчүн колдонулат.
+
+### **Синтаксиси**
+
+```
+CREATE DATABASE databasename;
+```
+
+### **CREATE DATABASE командасына мисал**
+
+Төмөнкү SQL командасы "testDB" деп аталган маалымат базасын түзөт:
+
+```
+CREATE DATABASE testDB;
+```
+Кеңеш: Кандайдыр бир маалымат базасын түзүүдөн мурун административдик артыкчылыкка ээ экениңизди текшериңиз. Маалыматтар базасы түзүлгөндөн кийин, аны төмөнкү SQL буйругу менен маалымат базаларынын тизмесинен текшере аласыз: SHOW DATABASES;
+""",
+      },
+      {
+        'type': 'YOUTUBE',
+        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+      },
+    ]
+  },
+  {
+    'title': 'SQLдеги DROP DATABASE командасы',
+    'content': [
+      {
+        'type': 'MARKDOWN',
+        'data': """
+# **SQLдеги DROP DATABASE командасы**
+
+DROP DATABASE командасы учурдагы SQL маалымат базасын түшүрүү үчүн колдонулат.
+
+### **Синтаксиси**
+
+```
+DROP DATABASE databasename;
+```
+
+Эскертүү: маалымат базасын түшүрүүдөн мурун этият болуңуз. Базаны жок кылуу, маалымат базасында сакталган толук маалыматты жоготууга алып келет!
+
+### **DROP DATABASE командасына мисал**
+
+Төмөнкү SQL командасы учурдагы "testDB" маалымат базасын түшүрөт:
+
+```
+DROP DATABASE testDB;
+```
+Кеңеш: Кандайдыр бир маалымат базасын түшүрүүдөн мурун администратордук артыкчылыкка ээ экениңизди текшериңиз. Маалыматтар базасы түшүрүлгөндөн кийин, аны төмөнкү SQL буйругу менен маалымат базаларынын тизмесинен текшере аласыз: SHOW DATABASES;
+""",
+      },
+      {
+        'type': 'YOUTUBE',
+        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+      },
+    ]
+  },
+  {
+    'title': 'SQLдеги CREATE TABLE командасы',
+    'content': [
+      {
+        'type': 'MARKDOWN',
+        'data': """
+# **SQLдеги CREATE TABLE командасы**
+
+CREATE TABLE командасы маалымат базасында жаңы таблица түзүү үчүн колдонулат.
+
+### **Синтаксиси**
+
+```
+CREATE TABLE table_name (
+    column1 datatype,
+    column2 datatype,
+    column3 datatype,
+   ....
+);
+```
+
+Мамычанын параметрлери столдун мамычаларынын аталыштарын аныктайт.
+
+Берилиштер түрү параметринде мамыча сактай турган маалыматтын түрү көрсөтүлөт.
+
+Кеңеш: Жеткиликтүү маалыматтардын түрлөрүнө сереп салуу үчүн, биздин толук маалымат түрлөрүнө шилтемеге өтүңүз.
+
+### **CREATE DATABASE командасына мисал**
+
+Төмөнкү мисал PersonID, LastName, FirstName, Address, жана City деген беш тилкени камтыган "Persons" деп аталган таблицаны түзөт:
+
+```
+CREATE TABLE Persons (
+    PersonID int,
+    LastName varchar(255),
+    FirstName varchar(255),
+    Address varchar(255),
+    City varchar(255)
+```
+PersonID тилкеси int түрүндө жана бүтүн санды камтыйт.
+
+Фамилия, Аты, Дареги жана Шаар тилкелери varchar түрүндө жана символдорду кармашат жана бул талаалар үчүн максималдуу узундук 255 символду түзөт.
+
+Кеңеш: Бош "Persons" столун азыр SQL INSERT INTO билдирүүсү менен маалыматтар менен толтурса болот.
+
+### **Башка таблицаны колдонуу менен таблица түзүү**
+
+Учурдагы таблицанын көчүрмөсү CREATE TABLE жардамы менен да түзүлүшү мүмкүн.
+
+Жаңы таблица ошол эле тилке аныктамаларын алат. Бардык мамычаларды же белгилүү мамычаларды тандай аласыз.
+
+Эгерде сиз бар болгон таблицаны колдонуп жаңы таблица түзсөңүз, анда жаңы таблица эски таблицанын мурунку баалуулуктары менен толтурулат.
+
+### **Синтаксиси**
+
+```
+CREATE TABLE new_table_name AS
+    SELECT column1, column2,...
+    FROM existing_table_name
+    WHERE ....;
+   ....
+);
+```
+
+Төмөнкү SQL "TestTables" деп аталган жаңы таблицаны түзөт (бул "Кардарлар" столунун көчүрмөсү):
+
+```
+CREATE TABLE TestTable AS
+SELECT customername, contactname
+FROM customers;
+```
+""",
+      },
+      {
+        'type': 'YOUTUBE',
+        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+      },
+    ]
+  },
+  {
+    'title': 'SQLдеги DROP TABLE командасы',
+    'content': [
+      {
+        'type': 'MARKDOWN',
+        'data': """
+# **SQLдеги DROP TABLE командасы**
+
+DROP TABLE командасы маалымат базасындагы учурдагы таблицаны түшүрүү үчүн колдонулат.
+
+### **Синтаксиси**
+
+```
+DROP TABLE table_name;
+```
+
+Эскертүү: столду таштоодон мурун этият болуңуз. Таблицаны өчүрүү столдо сакталган толук маалыматты жоготууга алып келет!
+
+### **DROP TABLE командасына мисал**
+
+Төмөнкү SQL командасы учурдагы "Shippers" столун түшүрөт:
+```
+DROP TABLE Shippers;
+```
+""",
+      },
+      {
+        'type': 'YOUTUBE',
+        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+      },
+    ]
+  },
 ];
