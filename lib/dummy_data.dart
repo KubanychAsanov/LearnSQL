@@ -354,10 +354,6 @@ WHERE CustomerID=1;
         'type': 'IMAGE',
         'data': 'https://lh3.googleusercontent.com/pw/AM-JKLUwRBpa3WJzcVowaCIRXnqhqOckBBSoRqOtCoANy9xw9fBimuiM1GH0Zd3VZ0ZiuqYX2yIWFR6V6ySPEXG7XP64jH88ofhdwnBOCwvMzYF9CFFLLFmgFFRIIA976pVJIYdHBZ_j46V4lWDfrBndrlKO=w793-h442-no?authuser=0'
       },
-      {
-        'type': 'YOUTUBE',
-        'data': 'https://youtu.be/wUagkFT8GXc'
-      },
     ]
   },
   {
@@ -467,7 +463,7 @@ WHERE NOT Country='Germany' AND NOT Country='USA';
       },
       {
         'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+        'data': 'https://youtu.be/VxImZuyVgmY'
       },
     ]
   },
@@ -523,10 +519,6 @@ ORDER BY Country, CustomerName;
         'type': 'IMAGE',
         'data': 'https://lh3.googleusercontent.com/pw/AM-JKLVo0rhsfS8ZOVVbGuxxpx5siP28K6483rG4fY9p9uIyaBq6yhi_sGSOzm80onrHoCgpjTxkCBMfQ_uY323BkyCkr58cREBGDxR2-vEzg-0HpqTEmg3o0cF-bHS6hnqwhKeS3-ycxPo0Qvcis2LOPsCq=w1053-h446-no?authuser=0'
       },
-      {
-        'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
-      },
     ]
   },
   {
@@ -577,10 +569,6 @@ VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway
 CustomerID колонкасы автоматтык түрдө көбөйүү талаасы болуп саналат жана таблицага жаңы жазуу киргизилгенде автоматтык түрдө түзүлөт.
 ```
 """,
-      },
-      {
-        'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
       },
     ]
   },
@@ -658,10 +646,6 @@ WHERE Address IS NOT NULL;
         'type': 'IMAGE',
         'data': 'https://lh3.googleusercontent.com/pw/AM-JKLUovGYAYLTk98IalJBTkjMOAVrEaVVf9YhNSnGZxHS9Xr5kqnnqhRt2GB7p0LXQPL3zi0HfZ4F1ReOMU_d-Mbqi85FxJw3FhYm1KNYx_BALQOxl1Qa1WegFwNxTZgzkcZWTgulwiE_nGGRKkyPGiWak=w877-h425-no?authuser=0'
       },
-      {
-        'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
-      },
     ]
   },
   {
@@ -729,7 +713,7 @@ WHERE Country='Mexico';
       },
       {
         'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+        'data': 'https://youtu.be/ggU9W-NREv4'
       },
     ]
   },
@@ -784,7 +768,7 @@ DELETE FROM Customers;
       },
       {
         'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+        'data': 'https://youtu.be/ggU9W-NREv4'
       },
     ]
   },
@@ -846,10 +830,6 @@ FROM Products;
       {
         'type': 'IMAGE',
         'data': 'https://lh3.googleusercontent.com/pw/AM-JKLU43gJoGJg1xQclOksy2rPe1W8zx-2d61UudbzONifoecxXsgdTXZTMhrt6nXT3Uvb16pSDSCWV5yEMzXD4EUY1LDry73K-9wCjl4tKW6oakurKlga5Ps04SZholRKgBuB41Q17qPDsyr7KzcfLdL_5=w775-h82-no?authuser=0'
-      },
-      {
-        'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
       },
     ]
   },
@@ -948,10 +928,6 @@ FROM OrderDetails;
 Эскертүү: NULL эске алынбайт.
 """,
       },
-      {
-        'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
-      },
     ]
   },
   {
@@ -1021,10 +997,6 @@ WHERE CustomerName LIKE 'a__%';
 ```
 """,
       },
-      {
-        'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
-      },
     ]
   },
   {
@@ -1066,7 +1038,7 @@ WHERE Country NOT IN ('Germany', 'France', 'UK');
       },
       {
         'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+        'data': 'https://youtu.be/LAgcMDFZiRs'
       },
     ]
   },
@@ -1136,10 +1108,6 @@ WHERE OrderDate BETWEEN '1996-07-01' AND '1996-07-31';
         'type': 'IMAGE',
         'data': 'https://lh3.googleusercontent.com/pw/AM-JKLXyQZHmqMWwyPg4eujDYa1mePBVQbq9Ea1ErRh1Qbid1yS4tAuL5fRFLVib4XpzklIqDdTf0VPOR6O3zIzDTXJjmzA8JWE-nWc2mIV7BUnYclDaW8DYTYi3_UzccR5sN90fOFs7SAuKGPs2mN4n8mPH=w1051-h423-no?authuser=0'
       },
-      {
-        'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
-      },
     ]
   },
   {
@@ -1206,7 +1174,7 @@ INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
       },
       {
         'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+        'data': 'https://youtu.be/ozIzhaCklPU'
       },
     ]
   },
@@ -1260,10 +1228,6 @@ INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);
 ```
 """,
       },
-      {
-        'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
-      },
     ]
   },
   {
@@ -1309,7 +1273,7 @@ ORDER BY Customers.CustomerName;
       },
       {
         'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+        'data': 'https://youtu.be/e3PyFW4FybM'
       },
     ]
   },
@@ -1353,10 +1317,6 @@ ORDER BY Orders.OrderID;
 
 Эскертүү: RIGHT JOIN ачкыч сөзү сол таблицада эч кандай дал келүү жок болсо да, оң таблицадагы бардык маалыматтарды кайтарып берет.
 """,
-      },
-      {
-        'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
       },
     ]
   },
@@ -1404,10 +1364,6 @@ ORDER BY Customers.CustomerName;
 Эскертүү: FULL JOIN ачкыч сөзү башка таблицага дал келген же келбегенине карабастан, бардык маалыматтарды кайтарат. Ал эми бардык таблицалардагы өзүлөрүнө гана тиешелүү маалыматтардагы саптар тизмеленет.
 """,
       },
-      {
-        'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
-      },
     ]
   },
   {
@@ -1444,7 +1400,7 @@ ORDER BY A.City;
       },
       {
         'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+        'data': 'https://youtu.be/0DakxpM7Bb8'
       },
     ]
   },
@@ -1555,10 +1511,6 @@ ORDER BY City;
         'type': 'IMAGE',
         'data': 'https://lh3.googleusercontent.com/pw/AM-JKLWJ2LrYtcppfYBAkedAcSKtIpuivbAQHBlhJ3A9Qc0L1p_VGmptoOJXrM1_ImRvo7puLQ3wAdnd3pQk9h4XpjAcr9gxvphLTRupLbjtIHeAZ2o0GqKzdGgQksyJryBwDzJ-DtEy4josMaROun50X8yo=w1052-h157-no?authuser=0'
       },
-      {
-        'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
-      },
     ]
   },
   {
@@ -1614,7 +1566,7 @@ GROUP BY ShipperName;
       },
       {
         'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+        'data': 'https://youtu.be/2R9kf65HRWU'
       },
     ]
   },
@@ -1667,7 +1619,7 @@ HAVING COUNT(Orders.OrderID) > 10;
       },
       {
         'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+        'data': 'https://youtu.be/qhXw1F_osCc'
       },
     ]
   },
@@ -1722,10 +1674,6 @@ WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppl
       {
         'type': 'IMAGE',
         'data': 'https://lh3.googleusercontent.com/pw/AM-JKLUl4pwfp--pnG_q-o2Hqwm2O18ralg1EHB9EeD6oQGqQ08EIy8TVB7A69gSMWWAImKp1eoUemwYxKHJatqSjDyLnw88ilC19LGgT0w05gRe8P32paNYcY-T8NamCBeqSRvUsMI9FeDBBHOqVnZG3wU2=w767-h80-no?authuser=0'
-      },
-      {
-        'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
       },
     ]
   },
@@ -1845,10 +1793,6 @@ WHERE TRUE;
         'type': 'IMAGE',
         'data': 'https://lh3.googleusercontent.com/pw/AM-JKLVBBky7GycSY4ugvL1gZ3g0r5b5kpgzhC5jYGa3ztcbjya3FH-AcPiHiKy4K3fPEdH3GBpxdgC8WJJKZFxwNrhF8NjP5i6L7n_jFPyqc_fEllHMQT2gUfW5WopXs70KPJPQT3Sm_PCggZrIQ3dz-swg=w768-h356-no?authuser=0'
       },
-      {
-        'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
-      },
     ]
   },
   {
@@ -1917,10 +1861,6 @@ WHERE 1 = 0;
 ```
 """,
       },
-      {
-        'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
-      },
     ]
   },
   {
@@ -1973,10 +1913,6 @@ SELECT SupplierName, ContactName, Address, City, PostalCode, Country FROM Suppli
 ```
 
 """,
-      },
-      {
-        'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
       },
     ]
   },
@@ -2044,7 +1980,7 @@ END);
       },
       {
         'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+        'data': 'https://youtu.be/0A-1zeAZrwg'
       },
     ]
   },
@@ -2132,10 +2068,6 @@ ORDER BY CustomerName;
 ```
 """,
       },
-      {
-        'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
-      },
     ]
   },
   {
@@ -2193,10 +2125,6 @@ ORDER BY CustomerName;
         'type': 'IMAGE',
         'data': 'https://lh3.googleusercontent.com/pw/AM-JKLVeLkCQBd8RbxQjA8idF1LbqLVU073lGv0BLZPOurecBD_XSnPTb_cmz-w6MeZPDlp5N0PelzynUqdVFWg9o8nXdjbaOyBgv6eOAJPhLrYXA99TOlQZY-rN5Y-JkRmgS9Xh7StilAcPP7X5w9T3qPiG=w787-h481-no?authuser=0'
       },
-      {
-        'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
-      },
     ]
   },
   {
@@ -2227,7 +2155,7 @@ CREATE DATABASE testDB;
       },
       {
         'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
+        'data': 'https://youtu.be/uIrDMKtLUlE'
       },
     ]
   },
@@ -2258,10 +2186,6 @@ DROP DATABASE testDB;
 ```
 Кеңеш: Кандайдыр бир маалымат базасын түшүрүүдөн мурун администратордук артыкчылыкка ээ экениңизди текшериңиз. Маалыматтар базасы түшүрүлгөндөн кийин, аны төмөнкү SQL буйругу менен маалымат базаларынын тизмесинен текшере аласыз: SHOW DATABASES;
 """,
-      },
-      {
-        'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
       },
     ]
   },
@@ -2338,10 +2262,6 @@ FROM customers;
 ```
 """,
       },
-      {
-        'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
-      },
     ]
   },
   {
@@ -2369,10 +2289,6 @@ DROP TABLE table_name;
 DROP TABLE Shippers;
 ```
 """,
-      },
-      {
-        'type': 'YOUTUBE',
-        'data': 'https://www.youtube.com/watch?v=IXycPq7MnwE'
       },
     ]
   },
