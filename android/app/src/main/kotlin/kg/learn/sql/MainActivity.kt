@@ -1,4 +1,4 @@
-package com.example.learn_sql
+package kg.learn.sql
 
 import io.flutter.embedding.android.FlutterActivity
 
